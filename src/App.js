@@ -1,10 +1,12 @@
 import './App.css';
+import Formcontent from './components/Formcontent';
 import Header from './components/Header';
 
 function App() {
   return (
     <>
-      <Header/>
+      <Header brandname="Case Converter"/>
+      <Formcontent/>
     </>
   );
 }
