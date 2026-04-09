@@ -3,7 +3,7 @@ import React from 'react'
 export default function Header(props) {
   return (
     <header className="headersec">
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <nav className={`navbar navbar-expand-lg navbar-${props.setMode} bg-${props.setMode}`}>
             <div className="container">
                 <a className="navbar-brand" href="/">{props.brandname}</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,9 +29,10 @@ export default function Header(props) {
                             </ul>
                         </li>
                     </ul>
-                    <div className="form-check form-switch">
-                        <input className="form-check-input" type="checkbox" role="switch" id="switchCheckDefault"/>
-                        <label className="form-check-label" htmlFor="switchCheckDefault">Default switch checkbox input</label>
+                    <div className={`form-check form-switch text-${props.setMode === 'light'?'dark':'light'}`}>
+                        <input className="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" onClick={props.clickToggle}/>
+                        {/* <label className="form-check-label" htmlFor="switchCheckDefault">Enable {props.setMode === 'light'?'light':'dark'} mode</label> */}
+                        <label className="form-check-label" htmlFor="switchCheckDefault">{props.toggBtnText}</label>
                     </div>
                 </div>
             </div>
