@@ -13,6 +13,9 @@ function App() {
       msg: message,
       type: msgtype
     });
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
   };
   const toggle = ()=> {
     if (mode === 'light') {
@@ -31,7 +34,7 @@ function App() {
     <>
       <Header brandname="Case Converter" setMode={mode} clickToggle={toggle} toggBtnText={toggleBtn}/>
       <Alert toggleAlert={alert}/>
-      <Formcontent setMode={mode}/>
+      <Formcontent setMode={mode} showToggleAlert={showAlert}/>
     </>
   );
 }

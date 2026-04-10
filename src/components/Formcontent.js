@@ -7,21 +7,26 @@ export default function Formcontent(props) {
     };
     const clickUpToggle = ()=> {
         setText(text.toUpperCase());
+        props.showToggleAlert('Convert to Uppercase','success');
     }
     const clickLowToggle = ()=> {
         setText(text.toLowerCase());
+        props.showToggleAlert('Convert to Lowercase','success');
     }
     const clearText = ()=> {
         setText('');
+        props.showToggleAlert('Text Cleared','warning');
     }
     const copyText = ()=> {
         let newText = document.getElementById('myform');
         newText.select();
         navigator.clipboard.writeText(newText.value);
+        props.showToggleAlert('Text Copied','success');
     }
     const removeSpaces = ()=> {
         let removeSpaces = text.split(/\s+/).join(' ');
         setText(removeSpaces);
+        props.showToggleAlert('Remove Extra Spaces','success');
     }
 
     return (
